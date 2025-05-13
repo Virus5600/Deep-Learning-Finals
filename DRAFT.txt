@@ -1,0 +1,56 @@
+[ABSTRACT]
+Efficient model training remains a critical challenge for deep learning practitioners with limited access to high-performance hardware. This proposal investigates how early stopping and learning rate scheduling can improve training efficiency on low-resource platforms such as CPU-only systems, entry-level GPUs like the NVIDIA GeForce RTX 3050 Ti, and free cloud computing environments. The study aims to analyze the individual and combined impact of these optimization techniques on model performance and training duration. Through a series of controlled experiments across multiple hardware configurations, this proposal seeks to provide practical insights for optimizing deep learning workflows in resource-constrained settings.
+
+[BACKGROUND]
+
+Training deep learning models often requires high-end hardware, which poses a significant barrier for students, researchers, developers, and enthusiasts. Although free platforms like Google Colab offer access to capable hardware, they often come with strict resource constraints - including session-time limits, limited RAM and VRAM, and shared GPU environments.
+
+In response to this challenge, this research investigates optimizations, specifically early stopping and learning rate scheduling, as methods to reduce training time, improve model performance, and make deep learning more feasible for those with limited resources. By focusing on practical solutions, this study aims to provide valuable insight to current practitioners and aspiring deep learning researchers by providing quantifiable results across different hardware configurations, including CPU-only systems, entry-level GPUs, and free cloud computing platforms.
+
+[OBJECTIVES]
+
+This study aims to systematically evaluate and compare training-time optimizations for deep learning on low-cost consumer hardware. In particular, we will:
+
+1. Measure Training Time Reduction - Quantify how early stopping alone shortens total training time compared to a fixed-epoch baseline on:
+	a. CPU-only
+	b. Entry-level GPU
+	c. Free Cloud GPU Tiers
+
+2. Assess Impact on Model Performance - Evaluate how early stopping affects validation accuracy and generalization, ensuring that quality is not unduly sacrificed for speed.
+
+3. Evaluate Learning Rate Scheduling Strategies - Compare different schedules (e.g. ReduceLROnPlateau, Exponential Decay) in terms of convergence speed and final accuracy across the same hardware setups.
+
+4. Compare Combined vs. Individual Techniques - Analyze whether applying early stopping and learning rate scheduling together yields additive (or synergistic) benefits over using each method in isolation.
+
+5. Profile Resource Utilization - Track and report key resource metrics - GPU/CPU utilization, RAM/VRAM usage, and per-epoch time - to understand the trade-offs on each hardware platform.
+
+6. Derive Practical Guidelines - Based on the above experiments, formulate actionable recommendations that map specific optimization settings to given hardware constraints, helping researchers with similar resource profiles.
+
+[REVIEW OF RELATED LITERATURE]
+Research on optimization techniques for deep learning (DL) training on low-cost hardware, particularly CPU-only systems or entry-level GPUs, has gained attention due to the necessity of democratizing machine learning access, especially for financially constrained researchers and students. Various studies have explored strategies to improve training efficiency without a substantial compromise on the quality of trained neural networks, confirming a growing interest in this area.
+
+One key technique discussed in the literature is the optimization of resource usage and efficiency in deep learning systems. For example, Frey et al. emphasize the importance of understanding resource allocation in deep learning workflows, spotlighting the need for resource-constrained researchers to conduct experiments without financial burden and with attention to the environmental impact of large-scale training efforts (Frey et al., 2022). Similarly, Wang et al. propose an efficient method called Egeria, which focuses on knowledge-guided layer freezing to accelerate the training of deep neural networks (DNNs), highlighting the computational intensity behind modern DL applications and the necessity for improved strategies on standard hardware (Wang et al., 2023).
+
+Moreover, Izsak et al. present practical approaches tailored to academic budgets, demonstrating significant improvements can be achieved even within tight resource constraints; their recipe for training BERT models highlights a combination of hyperparameter tuning and implementation speed-ups (Izsak et al., 2021). This supports the narrative that even substantial models can be trained effectively on limited hardware by carefully managing training techniques and configurations.
+
+Another contribution comes from Nalla et al., who discuss a low-power re-configurable multiplier optimizer for deep learning acceleration on limited hardware configurations, particularly FPGAs, which have shown promise for inference tasks (Nalla et al., 2022). This transition from high-cost computational resources to more accessible solutions could provide viable pathways for students and budget-constrained researchers in machine learning fields.
+
+While these studies illustrate current progress, there seems to be a gap in comprehensive solutions explicitly addressing the interplay between early stopping procedures, learning-rate scheduling, and their synergistic effects on low-cost hardware. Much of the existing research focuses either on enhancing performance on high-end systems or optimizing cluster usage rather than providing explicit guidelines for effectively training models on economically restricted setups.
+
+Additionally, Kang et al.'s work on cooperative distributed GPU power capping for deep learning clusters addresses minimizing training completion time while considering power budgets, highlighting the challenges faced in scaling performance within financial limits (Kang et al., 2022). This further emphasizes the gap where methodologies specifically tailored for single-device low-cost hardware training are still underrepresented.
+
+In summary, the prevailing literature indicates ongoing efforts to enhance deep learning training on low-cost and resource-constrained systems but also acknowledges a noticeable lack of dedicated research focusing explicitly on early stopping and learning-rate scheduling in these contexts. Addressing this gap could empower numerous students and researchers restricted by budgetary concerns to accelerate their training times effectively while maintaining the integrity of model performance.
+
+References:
+Frey, N., Li, B., McDonald, J., Zhao, D., Jones, M., Bestor, D., … & Samsi, S. (2022). Benchmarking resource usage for efficient distributed deep learning.. https://doi.org/10.48550/arxiv.2201.12423
+Izsak, P., Berchansky, M., & Levy, O. (2021). How to train bert with an academic budget.. https://doi.org/10.48550/arxiv.2104.07705
+Kang, D., Ha, Y., Peng, L., & Youn, C. (2022). Cooperative distributed gpu power capping for deep learning clusters. Ieee Transactions on Industrial Electronics, 69(7), 7244-7254. https://doi.org/10.1109/tie.2021.3095790
+Nalla, N., Subash, G., Hemaditya, P., & Ponnambalam, M. (2022). Low power and efficient re-configurable multiplier for accelerator. International Journal of Computer Communication and Informatics, 4(2), 1-11. https://doi.org/10.34256/ijcci2221
+Wang, Y., Sun, D., Chen, K., Lai, F., & Chowdhury, M. (2023). Egeria: efficient dnn training with knowledge-guided layer freezing., 851-866. https://doi.org/10.1145/3552326.3587451
+
+[REFERENCES]
+Frey, N., Li, B., McDonald, J., Zhao, D., Jones, M., Bestor, D., … & Samsi, S. (2022). Benchmarking resource usage for efficient distributed deep learning.. https://doi.org/10.48550/arxiv.2201.12423
+Izsak, P., Berchansky, M., & Levy, O. (2021). How to train bert with an academic budget.. https://doi.org/10.48550/arxiv.2104.07705
+Kang, D., Ha, Y., Peng, L., & Youn, C. (2022). Cooperative distributed gpu power capping for deep learning clusters. Ieee Transactions on Industrial Electronics, 69(7), 7244-7254. https://doi.org/10.1109/tie.2021.3095790
+Nalla, N., Subash, G., Hemaditya, P., & Ponnambalam, M. (2022). Low power and efficient re-configurable multiplier for accelerator. International Journal of Computer Communication and Informatics, 4(2), 1-11. https://doi.org/10.34256/ijcci2221
+Wang, Y., Sun, D., Chen, K., Lai, F., & Chowdhury, M. (2023). Egeria: efficient dnn training with knowledge-guided layer freezing., 851-866. https://doi.org/10.1145/3552326.3587451
