@@ -1,0 +1,95 @@
+# Empirical Analysis of Early Stopping and Learning Rate Scheduling for Deep Learning on Resource-Constrained Hardware
+
+This repository holds the codebase used in the research paper, holding three Jupyter Notebooks ([GPU](./src/gpu.ipynb), [CPU](./src/cpu.ipynb), and [Colab](./src/colab.ipynb)) that were used for the paper's experimentation.
+
+<br>
+
+## Contents
+
+- [About the Repository](#empirical-analysis-of-early-stopping-and-learning-rate-scheduling-for-deep-learning-on-resource-constrained-hardware)
+  - [Experiments](#experiments)
+    - [GPU](#gpu)
+    - [CPU](#cpu)
+    - [Colab](#colab)
+  - [How to Run](#how-to-run)
+    - [Conda](#conda)
+    - [Pip](#pip)
+  - [License](#license)
+
+<br>
+
+## Experiments
+
+Experiments were done in the following hardware specifications as per the study's Scope and Limitations.
+
+- [GPU](#gpu)
+- [CPU](#cpu)
+- [Colab](#colab)
+
+**NOTES:** Texts with `xxx...` or `XXX...` will have their exact specifications be updated upon verification.
+
+---
+
+### GPU
+
+The GPU experimentation was done in a gaming laptop with **NVIDIA GeForce RTX 3050 Ti** with **4 GB of VRAM**, with **shared memory of 16 GB** from the system RAM.
+
+**NOTES:**
+
+- Experimentation results can be seen in the [`out/gpu` directory](./out/gpu)
+- Codebase is at [`src/gpu.ipynb`](./src/gpu.ipynb)
+
+---
+
+### CPU
+
+For the CPU experimentation, it was done in a work-computer with **Intel i7-xxxx** that has **xx GB of RAM**. GPU isn't utilize despite the fact that it is loaded with an **XXX**.
+
+**NOTES:**
+
+- Experimentation results can be seen in the [`out/cpu` directory](./out/cpu)
+- Codebase is at [`src/cpu.ipynb`](./src/cpu.ipynb)
+
+---
+
+### Colab
+
+Lastly, for the Colab experimentation, it uses the free-tier with [**resource limits**](https://research.google.com/colaboratory/faq.html#resource-limits), which falls into the research's scope.
+
+**NOTES:**
+
+- Experimentation results can be seen in the [`out/colab` directory](./out/colab)
+- Codebase is at [`src/colab.ipynb`](./src/colab.ipynb)
+  - Code is the same as the GPU counterpart aside from all the `%pip install` in the first code block.
+
+---
+
+## How to Run
+
+As this environment uses Miniconda, `conda` users could simply run the code [below](#conda). However, as not everyone uses Anaconda or Miniconda, a `requirements.txt` is also provided within this repository to make sure others could still easily recreate the experiment by simply running the [`pip`](#pip) command.
+
+The entire experiment (for CPU & GPU) are ran in Windows 11 OS with the GPU environment utilizing [NVIDIA CUDA](https://developer.nvidia.com/cuda-toolkit) as [required by Tensorflow](https://www.tensorflow.org/install/pip#windows-native). Furthermore, this experiment uses **Python 3.9** to utilize `tensorflow-gpu` in Windows Native as later versions requires an extensive setup that my time won't allow.
+
+If you are a Linux user, you can probably use the later versions of Tensorflow and Python as seen in the [Tensorflow's Linux Installation guide](https://www.tensorflow.org/install/pip#linux). Just be sure to update all other packages if you wish too.
+
+### Conda
+
+```console
+conda env create -f environment.yml
+```
+
+This will install all necessary packages and the Python version used.
+
+### Pip
+
+Before installing the requirements, make sure to use **Python 3.9**. You can check if it is using 3.9 by simply using the `python -V`.
+
+```console
+pip install -r requirements.txt
+```
+
+Once ran, the command will install all the required dependencies.
+
+## License
+
+This repository is under [MIT License](./LICENSE).
