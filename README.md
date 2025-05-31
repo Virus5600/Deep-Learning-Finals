@@ -14,6 +14,8 @@ This repository holds the codebase used in the research paper, holding three Jup
   - [How to Run](#how-to-run)
     - [Conda](#conda)
     - [Pip](#pip)
+    - [Environment Keys](#environment-keys)
+      - [`WEATHER_API`](#weather-api)
   - [License](#license)
 
 <br>
@@ -89,6 +91,20 @@ pip install -r requirements.txt
 ```
 
 Once ran, the command will install all the required dependencies.
+
+### Environment Keys
+
+At some point, the researcher decided to include API usage to automatically gather some data such as temperature of a location. This meant that various API keys are now optional as an environment key to utilize the said API.
+
+#### Weather API
+
+The experiment uses an API to get the environment of a location. It uses [WeatherAPI](https://www.weatherapi.com/), a free weather API endpoint with free tier, to get the temperature of a location.
+
+For this experiment however, we just need to get the temperature so no codes needs to be modified. Just provide the API key in the `.env`'s `WEATHER_API` key to use the service and automatically set the temperature.
+
+If the `WEATHER_API` key is blank or non-existent, it will default back to the provided `env_temp` value defined under the ***Mertrics related variables*** section.
+
+On Google Colab experiment, the key is kept but not used as the cloud servers are in a controlled environment in which temperature is unknown.
 
 ## License
 
