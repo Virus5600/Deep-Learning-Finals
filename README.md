@@ -1,6 +1,6 @@
 # Empirical Analysis of Early Stopping and Learning Rate Scheduling for Deep Learning on Resource-Constrained Hardware
 
-This repository holds the codebase used in the research paper, holding three Jupyter Notebooks ([GPU](./src/gpu.ipynb), [CPU](./src/cpu.ipynb), and [Colab](./src/colab.ipynb)) that were used for the paper's experimentation.
+This repository holds the codebase used in the research paper, holding three Jupyter Notebooks ([GPU](./src/gpu.ipynb) and [CPU](./src/cpu.ipynb) ~~and [Colab](./src/colab.ipynb)~~) that were used for the paper's experimentation.
 
 <br>
 
@@ -10,7 +10,8 @@ This repository holds the codebase used in the research paper, holding three Jup
   - [Experiments](#experiments)
     - [GPU](#gpu)
     - [CPU](#cpu)
-    - [Colab](#colab)
+    - ~~[Colab](#colab)~~
+   	  - [Notice](#colab-notice)
   - [How to Run](#how-to-run)
     - [Conda](#conda)
     - [Pip](#pip)
@@ -26,9 +27,7 @@ Experiments were done in the following hardware specifications as per the study'
 
 - [GPU](#gpu)
 - [CPU](#cpu)
-- [Colab](#colab)
-
-**NOTES:** Texts with `xxx...` or `XXX...` will have their exact specifications be updated upon verification.
+- ~~[Colab](#colab)~~
 
 ---
 
@@ -45,7 +44,7 @@ The GPU experimentation was done in a gaming laptop with **NVIDIA GeForce RTX 30
 
 ### CPU
 
-For the CPU experimentation, it was done in a work-computer with **Intel i7-xxxx** that has **xx GB of RAM**. GPU isn't utilize despite the fact that it is loaded with an **XXX**.
+For the CPU experimentation, it was done in a work-computer with **Intel i5-11400H** that has **32 GB of RAM**. GPU isn't utilize despite the fact that it is loaded with an **MVIDIA GeForce RTX 3050 Ti**.
 
 **NOTES:**
 
@@ -54,15 +53,19 @@ For the CPU experimentation, it was done in a work-computer with **Intel i7-xxxx
 
 ---
 
-### Colab
+### ~~Colab~~
 
-Lastly, for the Colab experimentation, it uses the free-tier with [**resource limits**](https://research.google.com/colaboratory/faq.html#resource-limits), which falls into the research's scope.
+~~Lastly, for the Colab experimentation, it uses the free-tier with [**resource limits**](https://research.google.com/colaboratory/faq.html#resource-limits), which falls into the research's scope.~~
 
-**NOTES:**
+~~**NOTES:**~~
 
-- Experimentation results can be seen in the [`out/colab` directory](./out/colab)
-- Codebase is at [`src/colab.ipynb`](./src/colab.ipynb)
-  - Code is the same as the GPU counterpart aside from all the `%pip install` in the first code block.
+- ~~Experimentation results can be seen in the [`out/colab` directory](./out/colab)~~
+- ~~Codebase is at [`src/colab.ipynb`](./src/colab.ipynb)~~
+  - ~~Code is the same as the GPU counterpart aside from all the `%pip install` in the first code block.~~
+
+#### **COLAB NOTICE:**
+
+Colab is dropped due to excessive limitations encountered during experimentation. Specifically, the volatility of GPU runtime availability in the free tier forced us onto a CPU-only session—an approach that, if continued, would have exceeded the project’s timeline.
 
 ---
 
@@ -76,18 +79,40 @@ If you are a Linux user, you can probably use the later versions of Tensorflow a
 
 ### Conda
 
+For GPU environment:
+
 ```console
-conda env create -f environment.yml
+conda env create -f environment.yaml
 ```
 
-This will install all necessary packages and the Python version used.
+For CPU environment:
+
+```console
+conda env create -f environment-cpu.yaml
+```
+
+This will install all necessary packages and the Python version used. And to use the environment, just use the `conda activate command`:
+
+```console
+conda activate <.conda | .conda-cpu>
+```
+
+In a case where the `pip`'s requirements aren't fully installed in the environment, activate the said environment and use the respective `requirements` text file. See [next section](#pip) for more information.
 
 ### Pip
 
 Before installing the requirements, make sure to use **Python 3.9**. You can check if it is using 3.9 by simply using the `python -V`.
 
+For GPU environment:
+
 ```console
 pip install -r requirements.txt
+```
+
+For CPU environment:
+
+```console
+pip install -r requirements-cpu.txt
 ```
 
 Once ran, the command will install all the required dependencies.
