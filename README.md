@@ -77,12 +77,14 @@ The entire experiment (for CPU & GPU) are ran in Windows 11 OS with the GPU envi
 
 If you are a Linux user, you can probably use the later versions of Tensorflow and Python as seen in the [Tensorflow's Linux Installation guide](https://www.tensorflow.org/install/pip#linux). Just be sure to update all other packages if you wish too.
 
+There are two separate environments since CPU uses the `tensorflow-cpu` which prevents the use of GPU if your device ever has one. The CPU environment also excludes CUDA and cuDNN, allowing the CPU environment to just utilize the CPU.
+
 ### Conda
 
 For GPU environment:
 
 ```console
-conda env create -f environment.yaml
+conda env create -f environment-gpu.yaml
 ```
 
 For CPU environment:
@@ -94,7 +96,11 @@ conda env create -f environment-cpu.yaml
 This will install all necessary packages and the Python version used. And to use the environment, just use the `conda activate command`:
 
 ```console
-conda activate <.conda | .conda-cpu>
+# For GPU
+conda activate .conda-gpu
+
+# For CPU
+conda activate .conda-cpu
 ```
 
 In a case where the `pip`'s requirements aren't fully installed in the environment, activate the said environment and use the respective `requirements` text file. See [next section](#pip) for more information.
@@ -106,7 +112,7 @@ Before installing the requirements, make sure to use **Python 3.9**. You can che
 For GPU environment:
 
 ```console
-pip install -r requirements.txt
+pip install -r requirements-gpu.txt
 ```
 
 For CPU environment:
