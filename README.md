@@ -84,13 +84,21 @@ There are two separate environments since CPU uses the `tensorflow-cpu` which pr
 For GPU environment:
 
 ```console
+# In Conda's path
 conda env create -f environment-gpu.yaml
+
+# Relative path
+conda env create -f environment-gpu.yaml --prefix=./.conda-gpu
 ```
 
 For CPU environment:
 
 ```console
+# In Conda's path
 conda env create -f environment-cpu.yaml
+
+# Relative path
+conda env create -f environment-cpu.yaml --prefix=./.conda-cpu
 ```
 
 This will install all necessary packages and the Python version used. And to use the environment, just use the `conda activate command`:
@@ -103,7 +111,7 @@ conda activate .conda-gpu
 conda activate .conda-cpu
 ```
 
-In a case where the `pip`'s requirements aren't fully installed in the environment, activate the said environment and use the respective `requirements` text file. See [next section](#pip) for more information.
+In a case where the `pip`'s requirements aren't fully installed in the environment (due to the console not having elevated permissions), activate the said environment and use the respective `requirements` text file. See [next section](#pip) for more information.
 
 ### Pip
 
