@@ -1,0 +1,242 @@
+<svg width="1200" height="2090" xmlns="http://www.w3.org/2000/svg">
+	<defs>
+		<style>
+			.title {
+				font-family: Arial, sans-serif;
+				font-size: 24px;
+				font-weight: bold;
+				fill: #333;
+			}
+
+			.layer-text {
+				font-family: Arial, sans-serif;
+				font-size: 14px;
+				font-weight: bold;
+				fill: #333;
+			}
+
+			.detail-text {
+				font-family: Arial, sans-serif;
+				font-size: 11px;
+				fill: #666;
+			}
+
+			.group-title {
+				font-family: Arial, sans-serif;
+				font-size: 16px;
+				font-weight: bold;
+				fill: #333;
+			}
+
+			.stats-title {
+				font-family: Arial, sans-serif;
+				font-size: 18px;
+				font-weight: bold;
+				fill: #333;
+			}
+
+			.stats-text {
+				font-family: Arial, sans-serif;
+				font-size: 12px;
+				fill: #333;
+			}
+		</style>
+		<marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+			<polygon points="0,0 10,3.5 0,7" fill="#333333" />
+		</marker>
+	</defs>
+
+	<!-- Background -->
+	<rect width="1200" height="2090" fill="#f5f5f5" />
+
+	<!-- Title -->
+	<text x="400" y="40" class="title" text-anchor="middle">ResNet18_CIFAR10_Functional Architecture</text>
+
+	<!-- Input Layer -->
+	<rect x="200" y="80" width="400" height="60" fill="#e8f5e8" stroke="#4caf50" stroke-width="2" rx="8" />
+	<text x="400" y="105" class="layer-text" text-anchor="middle">Input Layer</text>
+	<text x="400" y="125" class="detail-text" text-anchor="middle">Shape: (None, 32, 32, 3) | Parameters: 0</text>
+
+	<!-- Arrow -->
+	<line x1="400" y1="150" x2="400" y2="180" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+
+	<!-- Initial Conv -->
+	<rect x="200" y="190" width="400" height="60" fill="#e3f2fd" stroke="#2196f3" stroke-width="2" rx="8" />
+	<text x="400" y="215" class="layer-text" text-anchor="middle">Conv2D (32 filters)</text>
+	<text x="400" y="235" class="detail-text" text-anchor="middle">Output: (None, 32, 32, 32) | Params: 864</text>
+
+	<line x1="400" y1="260" x2="400" y2="290" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+
+	<!-- BatchNorm + ReLU -->
+	<rect x="200" y="300" width="400" height="50" fill="#e3f2fd" stroke="#2196f3" stroke-width="2" rx="8" />
+	<text x="400" y="325" class="layer-text" text-anchor="middle">BatchNorm + ReLU</text>
+	<text x="400" y="340" class="detail-text" text-anchor="middle">Params: 128</text>
+
+	<line x1="400" y1="360" x2="400" y2="390" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+
+	<!-- Residual Block Group 1 -->
+	<rect x="150" y="400" width="500" height="280" fill="#fafafa" stroke="#cccccc" stroke-width="2" stroke-dasharray="5 5" rx="10" />
+	<text x="400" y="425" class="group-title" text-anchor="middle">Residual Block Group 1 (64 channels)</text>
+
+	<!-- Block 1a -->
+	<rect x="180" y="440" width="440" height="80" fill="#fff3e0" stroke="#ff9800" stroke-width="2" rx="8" />
+	<text x="400" y="465" class="layer-text" text-anchor="middle">Residual Block 1a</text>
+	<text x="400" y="485" class="detail-text" text-anchor="middle">Conv2D(64) + BN + ReLU → Conv2D(64) + BN</text>
+	<text x="400" y="500" class="detail-text" text-anchor="middle">Skip: Conv2D(1×1, 64) + BN | Output: (None, 32, 32, 64)</text>
+	<text x="400" y="515" class="detail-text" text-anchor="middle">Params: 55,168</text>
+
+	<line x1="400" y1="530" x2="400" y2="550" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+
+	<!-- Block 1b -->
+	<rect x="180" y="560" width="440" height="80" fill="#fff3e0" stroke="#ff9800" stroke-width="2" rx="8" />
+	<text x="400" y="585" class="layer-text" text-anchor="middle">Residual Block 1b</text>
+	<text x="400" y="605" class="detail-text" text-anchor="middle">Conv2D(64) + BN + ReLU → Conv2D(64) + BN</text>
+	<text x="400" y="620" class="detail-text" text-anchor="middle">Skip: Identity | Output: (None, 32, 32, 64) | Params: 73,728</text>
+
+
+	<line x1="400" y1="690" x2="400" y2="720" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+
+	<!-- Residual Block Group 2 -->
+	<rect x="150" y="730" width="500" height="280" fill="#fafafa" stroke="#cccccc" stroke-width="2" stroke-dasharray="5 5" rx="10" />
+	<text x="400" y="755" class="group-title" text-anchor="middle">Residual Block Group 2 (128 channels)</text>
+
+	<!-- Block 2a -->
+	<rect x="180" y="770" width="440" height="80" fill="#fff3e0" stroke="#ff9800" stroke-width="2" rx="8" />
+	<text x="400" y="795" class="layer-text" text-anchor="middle">Residual Block 2a (Downsample)</text>
+	<text x="400" y="815" class="detail-text" text-anchor="middle">Conv2D(128, stride=2) + BN + ReLU → Conv2D(128) + BN</text>
+	<text x="400" y="830" class="detail-text" text-anchor="middle">Skip: Conv2D(1×1, 128, stride=2) + BN | Output: (None, 16, 16, 128)</text>
+	<text x="400" y="845" class="detail-text" text-anchor="middle">Params: 229,376</text>
+
+	<line x1="400" y1="860" x2="400" y2="880" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+
+	<!-- Block 2b -->
+	<rect x="180" y="890" width="440" height="80" fill="#fff3e0" stroke="#ff9800" stroke-width="2" rx="8" />
+	<text x="400" y="915" class="layer-text" text-anchor="middle">Residual Block 2b</text>
+	<text x="400" y="935" class="detail-text" text-anchor="middle">Conv2D(128) + BN + ReLU → Conv2D(128) + BN</text>
+	<text x="400" y="950" class="detail-text" text-anchor="middle">Skip: Identity | Output: (None, 16, 16, 128) | Params: 295,424</text>
+
+
+	<line x1="400" y1="1020" x2="400" y2="1050" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+
+	<!-- Residual Block Group 3 -->
+	<rect x="150" y="1060" width="500" height="280" fill="#fafafa" stroke="#cccccc" stroke-width="2" stroke-dasharray="5 5" rx="10" />
+	<text x="400" y="1085" class="group-title" text-anchor="middle">Residual Block Group 3 (256 channels)</text>
+
+	<!-- Block 3a -->
+	<rect x="180" y="1100" width="440" height="80" fill="#fff3e0" stroke="#ff9800" stroke-width="2" rx="8" />
+	<text x="400" y="1125" class="layer-text" text-anchor="middle">Residual Block 3a (Downsample)</text>
+	<text x="400" y="1145" class="detail-text" text-anchor="middle">Conv2D(256, stride=2) + BN + ReLU → Conv2D(256) + BN</text>
+	<text x="400" y="1160" class="detail-text" text-anchor="middle">Skip: Conv2D(1×1, 256, stride=2) + BN | Output: (None, 8, 8, 256)</text>
+	<text x="400" y="1175" class="detail-text" text-anchor="middle">Params: 917,504</text>
+
+	<line x1="400" y1="1190" x2="400" y2="1210" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+
+	<!-- Block 3b -->
+	<rect x="180" y="1220" width="440" height="80" fill="#fff3e0" stroke="#ff9800" stroke-width="2" rx="8" />
+	<text x="400" y="1245" class="layer-text" text-anchor="middle">Residual Block 3b</text>
+	<text x="400" y="1265" class="detail-text" text-anchor="middle">Conv2D(256) + BN + ReLU → Conv2D(256) + BN</text>
+	<text x="400" y="1280" class="detail-text" text-anchor="middle">Skip: Identity | Output: (None, 8, 8, 256) | Params: 1,180,672</text>
+
+	<line x1="400" y1="1350" x2="400" y2="1380" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+
+	<!-- Residual Block Group 4 -->
+	<rect x="150" y="1390" width="500" height="280" fill="#fafafa" stroke="#cccccc" stroke-width="2" stroke-dasharray="5 5" rx="10" />
+	<text x="400" y="1415" class="group-title" text-anchor="middle">Residual Block Group 4 (512 channels)</text>
+
+	<!-- Block 4a -->
+	<rect x="180" y="1430" width="440" height="80" fill="#fff3e0" stroke="#ff9800" stroke-width="2" rx="8" />
+	<text x="400" y="1455" class="layer-text" text-anchor="middle">Residual Block 4a (Downsample)</text>
+	<text x="400" y="1475" class="detail-text" text-anchor="middle">Conv2D(512, stride=2) + BN + ReLU → Conv2D(512) + BN</text>
+	<text x="400" y="1490" class="detail-text" text-anchor="middle">Skip: Conv2D(1×1, 512, stride=2) + BN | Output: (None, 4, 4, 512)</text>
+	<text x="400" y="1505" class="detail-text" text-anchor="middle">Params: 3,670,016</text>
+
+	<line x1="400" y1="1520" x2="400" y2="1540" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+
+	<!-- Block 4b -->
+	<rect x="180" y="1550" width="440" height="80" fill="#fff3e0" stroke="#ff9800" stroke-width="2" rx="8" />
+	<text x="400" y="1575" class="layer-text" text-anchor="middle">Residual Block 4b</text>
+	<text x="400" y="1595" class="detail-text" text-anchor="middle">Conv2D(512) + BN + ReLU → Conv2D(512) + BN</text>
+	<text x="400" y="1610" class="detail-text" text-anchor="middle">Skip: Identity | Output: (None, 4, 4, 512) | Params: 4,720,640</text>
+
+	<line x1="400" y1="1680" x2="400" y2="1710" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+
+	<!-- Global Average Pooling -->
+	<rect x="200" y="1720" width="400" height="50" fill="#e3f2fd" stroke="#2196f3" stroke-width="2" rx="8" />
+	<text x="400" y="1745" class="layer-text" text-anchor="middle">Global Average Pooling</text>
+	<text x="400" y="1760" class="detail-text" text-anchor="middle">Output: (None, 512) | Params: 0</text>
+
+	<line x1="400" y1="1780" x2="400" y2="1800" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+
+	<!-- Flatten -->
+	<rect x="200" y="1810" width="400" height="50" fill="#e3f2fd" stroke="#2196f3" stroke-width="2" rx="8" />
+	<text x="400" y="1835" class="layer-text" text-anchor="middle">Flatten</text>
+	<text x="400" y="1850" class="detail-text" text-anchor="middle">Output: (None, 512) | Params: 0</text>
+
+	<line x1="400" y1="1870" x2="400" y2="1890" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+
+	<!-- Dropout -->
+	<rect x="200" y="1900" width="400" height="50" fill="#e3f2fd" stroke="#2196f3" stroke-width="2" rx="8" />
+	<text x="400" y="1925" class="layer-text" text-anchor="middle">Dropout (p=0.5)</text>
+	<text x="400" y="1940" class="detail-text" text-anchor="middle">Output: (None, 512) | Params: 0</text>
+
+	<line x1="400" y1="1960" x2="400" y2="1980" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+
+	<!-- Dense Output -->
+	<rect x="200" y="1990" width="400" height="50" fill="#f3e5f5" stroke="#9c27b0" stroke-width="2" rx="8" />
+	<text x="400" y="2015" class="layer-text" text-anchor="middle">Dense (10 classes)</text>
+	<text x="400" y="2030" class="detail-text" text-anchor="middle">Output: (None, 10) | Params: 5,130</text>
+
+	<!-- Statistics Panel -->
+	<rect x="750" y="80" width="400" height="600" fill="white" stroke="#dddddd" stroke-width="2" rx="8" />
+	<text x="950" y="110" class="stats-title" text-anchor="middle">Model Statistics</text>
+
+	<text x="770" y="140" class="stats-text">Total Parameters: 11,166,442</text>
+	<text x="770" y="160" class="stats-text">Trainable Parameters: 11,156,778</text>
+	<text x="770" y="180" class="stats-text">Non-trainable Parameters: 9,664</text>
+
+	<text x="950" y="220" class="stats-title" text-anchor="middle">Architecture Details</text>
+	<text x="770" y="250" class="stats-text">Input Shape: (32, 32, 3)</text>
+	<text x="770" y="270" class="stats-text">Output Classes: 10 (CIFAR-10)</text>
+	<text x="770" y="290" class="stats-text">Residual Blocks: 8 total (2 per group)</text>
+	<text x="770" y="310" class="stats-text">Channel Progression: 32→64→128→256→512</text>
+	<text x="770" y="330" class="stats-text">Spatial Downsampling: 32×32 → 16×16 → 8×8 → 4×4</text>
+
+	<!-- Legend -->
+	<text x="950" y="380" class="stats-title" text-anchor="middle">Legend</text>
+
+	<rect x="770" y="400" width="20" height="20" fill="#e8f5e8" stroke="#4caf50" stroke-width="2" rx="3" />
+	<text x="800" y="415" class="stats-text">Input Layer</text>
+
+	<rect x="770" y="430" width="20" height="20" fill="#e3f2fd" stroke="#2196f3" stroke-width="2" rx="3" />
+	<text x="800" y="445" class="stats-text">Standard Layer</text>
+
+	<rect x="770" y="460" width="20" height="20" fill="#fff3e0" stroke="#ff9800" stroke-width="2" rx="3" />
+	<text x="800" y="475" class="stats-text">Residual Block</text>
+
+	<rect x="770" y="490" width="20" height="20" fill="#f3e5f5" stroke="#9c27b0" stroke-width="2" rx="3" />
+	<text x="800" y="505" class="stats-text">Output Layer</text>
+
+	<line x1="770" y1="530" x2="790" y2="530" stroke="#FF5722" stroke-width="3" />
+	<text x="800" y="535" class="stats-text">Skip Connection</text>
+
+	<!-- Skip connection for 1a -->
+	<path d="M 630 480 Q 680 480 680 540 Q 680 600 630 600" stroke="#ff5722" stroke-width="3" fill="none" marker-end="url(#arrowhead)" />
+	<!-- Skip connection for 1b -->
+	<path d="M 630 600 Q 680 600 680 705 Q 680 810 630 810" stroke="#ff5722" stroke-width="3" fill="none" marker-end="url(#arrowhead)" />
+
+	<!-- Skip connection for 2a -->
+	<path d="M 630 810 Q 680 810 680 870 Q 680 930 630 930" stroke="#ff5722" stroke-width="3" fill="none" marker-end="url(#arrowhead)" />
+	<!-- Skip connection for 2b -->
+	<path d="M 630 930 Q 680 930 680 1035 Q 680 1140 630 1140" stroke="#ff5722" stroke-width="3" fill="none" marker-end="url(#arrowhead)" />
+
+	<!-- Skip connection for 3a -->
+	<path d="M 630 1140 Q 680 1140 680 1200 Q 680 1260 630 1260" stroke="#ff5722" stroke-width="3" fill="none" marker-end="url(#arrowhead)" />
+	<!-- Skip connection for 3b -->
+	<path d="M 630 1260 Q 680 1260 680 1365 Q 680 1470 630 1470" stroke="#ff5722" stroke-width="3" fill="none" marker-end="url(#arrowhead)" />
+
+	<!-- Skip connection for 4a -->
+	<path d="M 630 1470 Q 680 1470 680 1530 Q 680 1590 630 1590" stroke="#ff5722" stroke-width="3" fill="none" marker-end="url(#arrowhead)" />
+	<!-- Skip connection for 4b -->
+	<path d="M 630 1590 Q 680 1590 680 1650 Q 680 1745 630 1745" stroke="#ff5722" stroke-width="3" fill="none" marker-end="url(#arrowhead)" />
+
+</svg>
