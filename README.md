@@ -7,6 +7,7 @@ This repository holds the codebase used in the research paper, holding three Jup
 ## Contents
 
 - [About the Repository](#empirical-analysis-of-early-stopping-and-learning-rate-scheduling-for-deep-learning-on-resource-constrained-hardware)
+  - [Analytics](#analytics)
   - [Experiments](#experiments)
     - [GPU](#gpu)
     - [CPU](#cpu)
@@ -20,6 +21,10 @@ This repository holds the codebase used in the research paper, holding three Jup
   - [License](#license)
 
 <br>
+
+## Analytics
+
+The repository comes with the researcher's experiment logs. Analyzing these logs manually takes time and inefficient and thus, the [`analytics` Jupyter notebook](./src/analytics.ipynb) was added to make the analyzing process efficient and faster by reading the log files line-by-line before putting it in a dictionary which will then be converted into a dataframe, allowing the researcher to easily analyze it and even make graphs and plots while also allowing him to save it as a CSV or an Excel file.
 
 ## Experiments
 
