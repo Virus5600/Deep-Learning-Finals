@@ -1,4 +1,4 @@
-# Establishing Reproducible Evaluation Protocols for Resource-Constrained Deep Learning Training: A Systematic Framework with Educational Applications
+# Early Stopping and Learning Rate Scheduling on Resource-Constrained Hardware: An Educational Evaluation Framework
 
 This repository holds the codebase used in the research paper, holding three Jupyter Notebooks ([GPU](./src/gpu.ipynb) and [CPU](./src/cpu.ipynb) ~~and [Colab](./src/colab.ipynb)~~) that were used for the paper's experimentation.
 
@@ -6,7 +6,7 @@ This repository holds the codebase used in the research paper, holding three Jup
 
 ## Contents
 
-- [About the Repository](#empirical-analysis-of-early-stopping-and-learning-rate-scheduling-for-deep-learning-on-resource-constrained-hardware)
+- [About the Repository](#early-stopping-and-learning-rate-scheduling-on-resource-constrained-hardware-an-educational-evaluation-framework)
   - [Analytics](#analytics)
   - [Experiments](#experiments)
     - [GPU](#gpu)
