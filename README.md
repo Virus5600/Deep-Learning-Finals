@@ -1,4 +1,4 @@
-# Empirical Analysis of Early Stopping and Learning Rate Scheduling for Deep Learning on Resource-Constrained Hardware
+# Establishing Reproducible Evaluation Protocols for Resource-Constrained Deep Learning Training: A Systematic Framework with Educational Applications
 
 This repository holds the codebase used in the research paper, holding three Jupyter Notebooks ([GPU](./src/gpu.ipynb) and [CPU](./src/cpu.ipynb) ~~and [Colab](./src/colab.ipynb)~~) that were used for the paper's experimentation.
 
@@ -40,6 +40,8 @@ Experiments were done in the following hardware specifications as per the study'
 
 The GPU experimentation was done in a gaming laptop with **NVIDIA GeForce RTX 3050 Ti** with **4 GB of VRAM**, with **shared memory of 16 GB** from the system RAM.
 
+The run is divided into 4 strategies, with 5 runs per strategy amounting to a total of 20 runs overall.
+
 **NOTES:**
 
 - Experimentation results can be seen in the [`out/gpu` directory](./out/gpu)
@@ -50,6 +52,8 @@ The GPU experimentation was done in a gaming laptop with **NVIDIA GeForce RTX 30
 ### CPU
 
 For the CPU experimentation, it was done in a work-computer with **Intel i5-11400H** that has **32 GB of RAM**. GPU isn't utilize despite the fact that it is loaded with an **MVIDIA GeForce RTX 3050 Ti**.
+
+Due to long training time per strategy, this platform was limited to a single run per strategy, resulting to a total of only 4 runs. (See Scope and Limitations of the paper).
 
 **NOTES:**
 
@@ -152,4 +156,4 @@ On Google Colab experiment, the key is kept but not used as the cloud servers ar
 
 ## License
 
-This repository is under [MIT License](./LICENSE).
+This repository is under [MIT License](./LICENSE) to allow students and researchers to use the source codes for their own experiments, research, and studies.
