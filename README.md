@@ -38,7 +38,7 @@ Experiments were done in the following hardware specifications as per the study'
 
 ### GPU
 
-The GPU experimentation was done in a gaming laptop with **NVIDIA GeForce RTX 3050 Ti** with **4 GB of VRAM**, with **shared memory of 16 GB** from the system RAM.
+The GPU experimentation was done in a gaming laptop with **NVIDIA GeForce RTX 3050 Ti Laptop** with **4 GB of VRAM**, with **shared memory of 16 GB** from the system RAM.
 
 The run is divided into 4 strategies, with 5 runs per strategy amounting to a total of 20 runs overall.
 
@@ -51,7 +51,7 @@ The run is divided into 4 strategies, with 5 runs per strategy amounting to a to
 
 ### CPU
 
-For the CPU experimentation, it was done in a work-computer with **Intel i5-11400H** that has **32 GB of RAM**. GPU isn't utilize despite the fact that it is loaded with an **MVIDIA GeForce RTX 3050 Ti**.
+For the CPU experimentation, it was done in a the same gaming laptop used in the [GPU](#gpu) experiment, with **Intel i5-11400H** that has **32 GB of RAM**. GPU wasn't utilize despite the fact that it is loaded with an **NVIDIA GeForce RTX 3050 Ti Laptop**.
 
 Due to long training time per strategy, this platform was limited to a single run per strategy, resulting to a total of only 4 runs. (See Scope and Limitations of the paper).
 

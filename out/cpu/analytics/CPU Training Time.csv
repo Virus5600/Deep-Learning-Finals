@@ -1,0 +1,5 @@
+Strategy,Total Training Time (Mean),Total Training Time (Std)
+EarlyStopping & ReduceLROnPlateau,22.389,0.0
+EarlyStopping,13.676,0.0
+ReduceLROnPlateau,33.452,0.0
+None,26.489,0.0

@@ -1,0 +1,5 @@
+Strategy,Val Accuracy (Mean),Val Accuracy (Std),Val Loss (Mean),Val Loss (Std),Accuracy (Mean),Accuracy (Std),Loss (Mean),Loss (Std)
+EarlyStopping & ReduceLROnPlateau,0.897,0.011,0.317,0.034,0.921,0.015,0.228,0.045
+EarlyStopping,0.874,0.013,0.401,0.06,0.904,0.01,0.276,0.03
+ReduceLROnPlateau,0.892,0.013,0.331,0.034,0.908,0.019,0.266,0.055
+None,0.892,0.009,0.355,0.021,0.929,0.001,0.205,0.003

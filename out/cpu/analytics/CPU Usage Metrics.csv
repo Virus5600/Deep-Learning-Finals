@@ -1,0 +1,5 @@
+Strategy,CPU Percent (Mean),CPU Percent (Std),CPU Percent Peak (Mean),CPU Percent Peak (Std),CPU Power (Mean),CPU Power (Std),CPU Power Peak (Mean),CPU Power Peak (Std),GPU Load (Mean),GPU Load (Std),GPU Load Peak (Mean),GPU Load Peak (Std),GPU Power (Mean),GPU Power (Std),GPU Power Peak (Mean),GPU Power Peak (Std),GPU Temp (Mean),GPU Temp (Std),GPU Temp Peak (Mean),GPU Temp Peak (Std),Env Temp (Mean),Env Temp (Std)
+EarlyStopping & ReduceLROnPlateau,36.052,0.0,100.0,0.0,16.223,0.0,23.85,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,28.247,0.0
+EarlyStopping,38.917,0.0,100.0,0.0,17.512,0.0,24.354,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,27.46,0.0
+ReduceLROnPlateau,44.834,0.0,100.0,0.0,20.175,0.0,29.606,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,27.867,0.0
+None,32.426,0.0,100.0,0.0,14.592,0.0,23.85,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,28.939,0.0

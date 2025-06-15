@@ -1,0 +1,5 @@
+Strategy,Cost Efficiency Local (Mean),Cost Efficiency Local (Std),Cost Per Accuracy Point Local (Mean),Cost Per Accuracy Point Local (Std),Cost Efficiency USD (Mean),Cost Efficiency USD (Std),Cost Per Accuracy Point USD (Mean),Cost Per Accuracy Point USD (Std),Power Efficiency (Mean),Power Efficiency (Std),Time Efficiency (Mean),Time Efficiency (Std)
+EarlyStopping & ReduceLROnPlateau,404.821,60.149,0.004,0.001,22490.06,3341.611,0.0,0.0,1.511,0.04,261.541,40.973
+EarlyStopping,464.834,22.134,0.003,0.0,25824.107,1229.681,0.0,0.0,1.72,0.079,265.072,19.341
+ReduceLROnPlateau,377.666,7.045,0.005,0.0,20981.441,391.408,0.0,0.0,1.687,0.11,229.359,14.601
+None,344.129,14.559,0.005,0.0,19118.251,808.825,0.0,0.0,1.438,0.044,243.844,12.789
