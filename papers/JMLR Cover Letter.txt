@@ -1,0 +1,36 @@
+June 19, 2025
+
+The Editors-in-Chief
+Journal of Machine Learning Research
+
+Subject: Manuscript Submission – "Empirical Analysis Of Early Stopping And Learning Rate Scheduling For Deep Learning On Resource Constrained Hardware"
+
+Dear Editors,
+
+I am pleased to submit our manuscript titled "Empirical Analysis Of Early Stopping And Learning Rate Scheduling For Deep Learning On Resource Constrained Hardware" for consideration as an original research article in the Journal of Machine Learning Research (JMLR).
+
+In this paper, we present a comprehensive empirical analysis of the effectiveness of early stopping and learning rate scheduling strategies when training deep neural networks on resource-constrained consumer hardware, such as laptops and gaming PCs. Despite the extensive research on deep learning optimization, there remains a significant gap in systematic empirical data concerning the performance of these strategies under realistic computational limitations. Our study directly addresses this by quantitatively characterizing performance and efficiency trade-offs across representative CPU-only (Intel i5-11400H) and entry-level GPU (RTX 3050 Ti) platforms.
+
+Through controlled experiments on CIFAR-10 image classification using the ResNet18 architecture, our key findings demonstrate:
+
+Platform-dependent optimization behaviors: We observe that the effectiveness rankings of optimization strategies fundamentally alter across different hardware platforms.
+
+Substantial time reductions: Early stopping consistently achieves significant training time reductions (e.g., 48.4% on CPU, 18.7% on GPU).
+
+GPU acceleration benefits: GPU acceleration provides a substantial 13-33x training speedup, but it also qualitatively changes strategy effectiveness.
+
+Resource-normalized efficiency metrics: We introduce and utilize metrics that capture efficiency trade-offs relevant to resource-constrained applications, showing that early stopping consistently provides optimal cost efficiency.
+
+These insights provide critical, evidence-based guidance for researchers and practitioners making optimization decisions in resource-limited environments, emphasizing that hardware characteristics must be explicitly accounted for in strategy selection. We believe that our systematic evaluation framework and the practical guidelines derived from our empirical data align well with JMLR's scope, particularly its focus on empirical studies, machine learning algorithms, and performance evaluation.
+
+This manuscript is original work and has not been published previously, nor is it under consideration for publication elsewhere. All authors have contributed significantly to the work and agree to the submission of this manuscript to JMLR. There are no competing interests to declare.
+
+Thank you for your time and consideration. We look forward to your positive response.
+
+Sincerely,
+
+Karl Satchi Navida
+College of Computing & Information Technology
+National University
+Manila, Philippines
+Email: navidake@national-u.edu.ph
